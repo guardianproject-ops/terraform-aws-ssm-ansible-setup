@@ -9,15 +9,17 @@ module "label" {
 }
 
 resource "aws_s3_bucket" "playbooks_bucket" {
-  bucket = "${module.label.id}-playbooks"
-  acl    = "private"
-  tags   = module.label.tags
+  bucket        = "${module.label.id}-playbooks"
+  acl           = "private"
+  tags          = module.label.tags
+  force_destroy = var.force_destroy
 }
 
 resource "aws_s3_bucket" "ssm_logs_bucket" {
-  bucket = "${module.label.id}-ssm-logs"
-  acl    = "private"
-  tags   = module.label.tags
+  bucket        = "${module.label.id}-ssm-logs"
+  acl           = "private"
+  tags          = module.label.tags
+  force_destroy = var.force_destroy
 }
 
 data "aws_iam_policy_document" "ssm_assume_role_policy" {
