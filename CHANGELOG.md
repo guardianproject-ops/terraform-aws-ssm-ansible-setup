@@ -1,15 +1,18 @@
 # Changelog
 
-All notable changes to this project will be documented in this file.
+All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
-and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+## 2.0.0 (2020-07-24)
 
-## [Unreleased]
 
-### Added
-### Changed
-### Removed
+### ⚠ BREAKING CHANGES
+
+* The logs and ansible playbook buckets now enforce
+server side encryption.
+
+### Features
+
+* Enforce server side encryption in buckets ([522202d](https://gitlab.com/guardianproject-ops/terraform-aws-ssm-ansible-setup/commit/522202d425eb1070372e64f1bf316bc96b4fa598))
 
 ## [0.1.0] - 2020-04-04
 
@@ -28,4 +31,3 @@ n/a
 
 [Unreleased]: https://gitlab.com/guardianproject-ops/terraform-aws-ssm-ansible-setup/compare/0.1.0...HEAD
 [0.1.0]: https://gitlab.com/guardianproject-ops/terraform-aws-ssm-ansible-setup/tag/0.1.0
-
