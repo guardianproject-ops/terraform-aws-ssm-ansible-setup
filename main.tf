@@ -13,6 +13,13 @@ resource "aws_s3_bucket" "playbooks_bucket" {
   acl           = "private"
   tags          = module.label.tags
   force_destroy = var.force_destroy
+  server_side_encryption_configuration {
+    rule {
+      apply_server_side_encryption_by_default {
+        sse_algorithm = "aws:kms"
+      }
+    }
+  }
 }
 
 resource "aws_s3_bucket" "ssm_logs_bucket" {
@@ -20,6 +27,13 @@ resource "aws_s3_bucket" "ssm_logs_bucket" {
   acl           = "private"
   tags          = module.label.tags
   force_destroy = var.force_destroy
+  server_side_encryption_configuration {
+    rule {
+      apply_server_side_encryption_by_default {
+        sse_algorithm = "aws:kms"
+      }
+    }
+  }
 }
 
 data "aws_iam_policy_document" "ssm_assume_role_policy" {
