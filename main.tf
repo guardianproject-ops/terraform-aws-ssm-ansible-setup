@@ -1,17 +1,7 @@
-module "label" {
-  source     = "git::https://github.com/cloudposse/terraform-null-label.git?ref=tags/0.19.2"
-  namespace  = var.namespace
-  stage      = var.stage
-  name       = var.name
-  delimiter  = var.delimiter
-  attributes = var.attributes
-  tags       = var.tags
-}
-
 resource "aws_s3_bucket" "playbooks_bucket" {
-  bucket        = "${module.label.id}-playbooks"
+  bucket        = "${module.this.id}-playbooks"
   acl           = "private"
-  tags          = module.label.tags
+  tags          = module.this.tags
   force_destroy = var.force_destroy
   server_side_encryption_configuration {
     rule {
@@ -23,9 +13,9 @@ resource "aws_s3_bucket" "playbooks_bucket" {
 }
 
 resource "aws_s3_bucket" "ssm_logs_bucket" {
-  bucket        = "${module.label.id}-ssm-logs"
+  bucket        = "${module.this.id}-ssm-logs"
   acl           = "private"
-  tags          = module.label.tags
+  tags          = module.this.tags
   force_destroy = var.force_destroy
   server_side_encryption_configuration {
     rule {
@@ -48,13 +38,13 @@ data "aws_iam_policy_document" "ssm_assume_role_policy" {
 }
 
 resource "aws_iam_role" "ssm_instance_role" {
-  name               = "${module.label.id}-ssm-playbook-instance-role"
+  name               = "${module.this.id}-ssm-playbook-instance-role"
   path               = "/"
   assume_role_policy = data.aws_iam_policy_document.ssm_assume_role_policy.json
 }
 
 resource "aws_iam_instance_profile" "ssm_instance_profile" {
-  name = "${module.label.id}-ssm-playbook-instance-profile"
+  name = "${module.this.id}-ssm-playbook-instance-profile"
   role = aws_iam_role.ssm_instance_role.name
 }
 
@@ -64,7 +54,7 @@ resource "aws_iam_role_policy_attachment" "ssm_core_access" {
 }
 
 resource "aws_iam_policy" "ssm_playbook_access_policy" {
-  name   = "${module.label.id}-playbook-access"
+  name   = "${module.this.id}-playbook-access"
   policy = <<POLICY
 {
   "Version": "2012-10-17",
