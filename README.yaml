@@ -32,7 +32,7 @@ usage: |-
 
   ```hcl
   module "ssm_setup" {
-    source          = "git::https://gitlab.com/guardianproject-ops/terraform-aws-ssm-ansible-setup?ref=tags/0.1.0"
+    source          = "git::https://gitlab.com/guardianproject-ops/terraform-aws-ssm-ansible-setup?ref=master"
     namespace       = var.namespace
     stage           = var.stage
     delimiter       = var.delimiter
