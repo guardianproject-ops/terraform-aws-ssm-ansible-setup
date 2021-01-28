@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.1.1](https://gitlab.com/guardianproject-ops/terraform-aws-ssm-ansible-setup/compare/3.1.0...3.1.1) (2021-01-28)
+
+
+### Bug Fixes
+
+* update null-label to support terraform 0.14 ([c333e0c](https://gitlab.com/guardianproject-ops/terraform-aws-ssm-ansible-setup/commit/c333e0c41979277c14cc271f75e51af62f38a82a))
+
 ## [3.1.0](https://gitlab.com/guardianproject-ops/terraform-aws-ssm-ansible-setup/compare/v3.0.0...v3.1.0) (2020-09-09)
 
 
