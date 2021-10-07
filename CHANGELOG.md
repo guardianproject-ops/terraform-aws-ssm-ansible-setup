@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.2.0](https://gitlab.com/guardianproject-ops/terraform-aws-ssm-ansible-setup/compare/3.1.1...3.2.0) (2021-10-07)
+
+
+### Features
+
+* add public block rule for the buckets ([1e60052](https://gitlab.com/guardianproject-ops/terraform-aws-ssm-ansible-setup/commit/1e600525c1db4b1eb47d4f61d7a3a0caf0c92b0b))
+
 ### [3.1.1](https://gitlab.com/guardianproject-ops/terraform-aws-ssm-ansible-setup/compare/3.1.0...3.1.1) (2021-01-28)
 
 
