@@ -12,6 +12,15 @@ resource "aws_s3_bucket" "playbooks_bucket" {
   }
 }
 
+resource "aws_s3_bucket_public_access_block" "playbooks" {
+  bucket = aws_s3_bucket.playbooks_bucket.id
+
+  block_public_acls       = true
+  block_public_policy     = true
+  ignore_public_acls      = true
+  restrict_public_buckets = true
+}
+
 resource "aws_s3_bucket" "ssm_logs_bucket" {
   bucket        = "${module.this.id}-ssm-logs"
   acl           = "private"
@@ -24,6 +33,15 @@ resource "aws_s3_bucket" "ssm_logs_bucket" {
       }
     }
   }
+}
+
+resource "aws_s3_bucket_public_access_block" "logs" {
+  bucket = aws_s3_bucket.ssm_logs_bucket.id
+
+  block_public_acls       = true
+  block_public_policy     = true
+  ignore_public_acls      = true
+  restrict_public_buckets = true
 }
 
 data "aws_iam_policy_document" "ssm_assume_role_policy" {
