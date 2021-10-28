@@ -56,7 +56,7 @@ data "aws_iam_policy_document" "ssm_assume_role_policy" {
 }
 
 resource "aws_iam_role" "ssm_instance_role" {
-  name               = "${module.this.id}-ssm-playbook-instance-role"
+  name               = "${substr(module.this.id, 0, 36)}-ssm-playbook-instance-role"
   path               = "/"
   assume_role_policy = data.aws_iam_policy_document.ssm_assume_role_policy.json
 }
